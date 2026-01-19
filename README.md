@@ -65,44 +65,58 @@ CREATE TABLE users (
     email VARCHAR(100)
 );
 
+---
 
 ## ⚙️ Setup & Installation
-1️⃣ Prerequisites
 
-Java JDK 17 or above
+Follow the steps below to set up and run the project locally.
 
-MySQL Server (running on port 3306)
+---
 
-MySQL Connector/J (JDBC Driver)
+### 1️⃣ Prerequisites
 
-2️⃣ Configure Database
-CREATE DATABASE user_management_db;
-USE user_management_db;
+Ensure the following are installed on your system:
+
+- **Java JDK 17 or above**
+  ```bash
+  java -version
+  MySQL Server (running on default port 3306)
+
+MySQL Server (running on default port 3306)
+
+Git (optional, for cloning repository)
+
+Verify:
+
+SELECT * FROM users;
 
 
-Create the table using the schema above.
+3️⃣ Add MySQL JDBC Driver
 
-3️⃣ Add JDBC Driver
+Download MySQL Connector/J from the official MySQL website.
 
-Place the MySQL JDBC driver inside a lib folder:
+Create a folder named lib in the project root.
+
+Place the JDBC driver JAR file inside it:
 
 lib/mysql-connector-j-8.x.x.jar
 
-4️⃣ Update Database Credentials
+4️⃣ Configure Database Connection
 
-In DBConnection.java:
+Open util/DBConnection.java and update your credentials:
 
 private static final String URL = "jdbc:mysql://localhost:3306/user_management_db";
 private static final String USER = "root";
-private static final String PASSWORD = "your_password";
+private static final String PASSWORD = "your_mysql_password";
 
+5️⃣ Compile the Project
 
-▶️ Compile & Run
+From the project root directory, run:
 
-From the project root directory:
-
-Compile
 javac -cp "lib/*" -d out model/*.java util/*.java dao/*.java service/*.java main/*.java
 
-Run
+
+This will compile all source files and generate .class files inside the out directory.
+
+6️⃣ Run the Application
 java -cp "out;lib/*" main.Main

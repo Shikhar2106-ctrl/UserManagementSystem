@@ -66,7 +66,7 @@ CREATE TABLE users (
 );
 
 
-⚙️ Setup & Installation
+## ⚙️ Setup & Installation
 1️⃣ Prerequisites
 
 Java JDK 17 or above
